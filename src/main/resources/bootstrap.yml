@@ -1,6 +1,12 @@
 server:
   port: 8100
 
+logging:
+  level:
+    pl:
+      kukla:
+        krzys: debug
+
 spring:
   application:
     name: 05-currency-convertion-service
