@@ -2,6 +2,7 @@ package pl.kukla.krzys.in28minutes.microservice.currencyconvertionservice.web;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,10 +24,11 @@ import java.util.UUID;
 public class CurrencyConversionController {
 
     private final CurrencyExchangeServiceProxy currencyExchangeServiceProxy;
+    private final Environment environment;
 
     @GetMapping("/from/{from}/to/{to}/quantity/{quantity}")
     public ResponseEntity<CurrencyConversionDto> convertCurrency(@PathVariable String from, @PathVariable String to, @PathVariable BigDecimal quantity) {
-        log.debug("Calling to Currency-exchange-service...");
+        log.debug("calling to currency-exchange-service...");
 
         CurrencyConversionDto currencyConversionResponse = currencyExchangeServiceProxy.retrieveExchangeValue(from, to);
 
