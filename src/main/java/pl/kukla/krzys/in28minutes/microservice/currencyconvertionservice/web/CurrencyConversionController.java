@@ -35,6 +35,7 @@ public class CurrencyConversionController {
         BigDecimal conversionMultiple = currencyConversionResponse.getConversionMultiple();
         CurrencyConversionDto currencyConversionDto = new CurrencyConversionDto
             (UUID.fromString("768323bc-aa76-4e56-b076-884f9e72ab3e"), from, to, conversionMultiple, quantity, quantity.multiply(conversionMultiple));
+        log.debug("{}", currencyConversionResponse);
         return ResponseEntity.ok(currencyConversionDto);
     }
 
