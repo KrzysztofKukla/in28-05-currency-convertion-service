@@ -53,10 +53,24 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
-		<!-- Spring Cloud Sleuth allows to locate place of defect in any microservices, assigns unique id to the request -->
+		<!-- Spring Cloud Sleuth allows to locate place of defect in any microservices using logging, assigns unique id to the request -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+
+		<!-- this dependency allows to connect to the Zipkin -->
+		<!-- it starts logging messages -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zipkin</artifactId>
+		</dependency>
+
+		<!-- we will send Zipkin message to RabbitMq by amqp protocol -->
+		<!-- we established connection to RabbitMq -->
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit</artifactId>
 		</dependency>
 
 		<dependency>
